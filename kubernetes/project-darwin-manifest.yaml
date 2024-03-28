@@ -62,7 +62,7 @@ kind: Service
 metadata:
   name: dw
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - name: "9090"
       port: 9090
@@ -99,7 +99,7 @@ kind: Service
 metadata:
   name: dp
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - name: "8443"
       port: 8443
