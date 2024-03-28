@@ -1,0 +1,11 @@
+FROM mysql:8
+ 
+# Set environment variables for MySQL root user password and the name of the database to be created
+ENV MYSQL_ROOT_PASSWORD=password
+ENV MYSQL_DATABASE=persondb
+ 
+# Copy SQL script to create the table and insert data
+COPY init.sql /docker-entrypoint-initdb.d/
+ 
+# Expose port 3306
+EXPOSE 3306

@@ -1,0 +1,12 @@
+FROM openjdk
+ 
+COPY . .
+ 
+EXPOSE 8443
+ 
+ENV SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/persondb?allowPublicKeyRetrieval=true&useSSL=false
+ENV spring.datasource.username=root
+ENV spring.datasource.password=password
+ENV spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+ 
+CMD ["java","-jar","ROOT.jar"]

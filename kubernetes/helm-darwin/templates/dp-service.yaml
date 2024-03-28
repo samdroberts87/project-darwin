@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dp
+spec:
+  type: {{ .Values.dp.serviceType }}
+  ports:
+  - name: "8443"
+    port: 8443
+    targetPort: 8443
+  selector:
+    app: dp

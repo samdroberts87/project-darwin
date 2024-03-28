@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dw
+spec:
+  replicas: {{ .Values.dw.replicaCount }}
+  selector:
+    matchLabels:
+      app: dw
+  template:
+    metadata:
+      labels:
+        app: dw
+    spec:
+      containers:
+      - name: dw
+        image: {{ .Values.dw.image }}
+        ports:
+        - containerPort: {{ .Values.dw.port }}

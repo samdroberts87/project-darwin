@@ -1,0 +1,20 @@
+version: '3'
+services:
+  dw:
+    image: "samdroberts/dw"
+    ports:
+      - "9090:9090"
+    depends_on:
+      - "db"
+    restart: "always"
+  db:
+    image: "samdroberts/ddb"
+    ports:
+      - "3306:3306"
+  webapp:
+    image: "samdroberts/dp"
+    ports:
+      - "8443:8443"
+    depends_on:
+      - "db"
+    restart: "always"
