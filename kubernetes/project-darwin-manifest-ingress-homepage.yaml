@@ -99,11 +99,12 @@ kind: Service
 metadata:
   name: dp
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - name: "8443"
       port: 8443
       targetPort: 8443
+      nodePort: 31000
   selector:
     io.kompose.service: dp
 
@@ -118,13 +119,6 @@ spec:
   - host: www.project-darwin.co.uk
     http:
       paths:
-      - path: /api/v2/users
-        pathType: Prefix
-        backend:
-          service:
-            name: dp
-            port:
-              number: 8443
       - path: /
         pathType: Prefix
         backend:
